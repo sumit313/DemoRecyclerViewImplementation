@@ -12,16 +12,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_main)
-
         val binding: ActivityMainBinding = DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         val adapter = RecyclerViewAdapter()
         binding.recyclerViewItemList.adapter = adapter
-        //adapter.dataList = DataSource.dataList
         adapter.submitList(DataSource.dataList)
         binding.lifecycleOwner = this
-
         button1.setOnClickListener(View.OnClickListener {
             adapter.submitList(DataSource.newDataList)
         })
